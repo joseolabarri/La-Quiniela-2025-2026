@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Quiniela — 2025/26</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rojo: #c8102e;
+    --rojo-oscuro: #8c0b1f;
+    --rojo-claro: #e8203f;
+    --blanco: #ffffff;
+    --fondo: #faf7f7;
+    --gris-claro: #f0e8e9;
+    --negro: #180507;
+    --oro: #b8830f;
+    --plata: #7a7a7a;
+    --bronce: #7a4520;
+    --verde-premio: #156b38;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--fondo);
+    min-height: 100vh;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--negro);
+    padding: 0 0 64px 0;
+  }
+
+  .header {
+    background: linear-gradient(150deg, var(--rojo-oscuro) 0%, var(--rojo) 55%, var(--rojo-claro) 100%);
+    padding: 48px 20px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 32px rgba(200,16,46,0.3);
+  }
+
+  .header::before {
+    content: '1 X 2';
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 260px;
+    letter-spacing: 70px;
+    color: rgba(255,255,255,0.035);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .header-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(48px, 10vw, 88px);
+    letter-spacing: -1px;
+    color: white;
+    line-height: 0.95;
+    position: relative;
+  }
+
+  .header-season {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.9);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    padding: 5px 18px;
+    border-radius: 20px;
+    margin-top: 16px;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .container { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(200,16,46,0.25), transparent);
+  }
+
+  /* STATS */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .stat-box {
+    background: white;
+    border: 1px solid rgba(200,16,46,0.1);
+    border-radius: 14px;
+    padding: 16px 14px;
+    text-align: center;
+    box-shadow: 0 1px 6px rgba(200,16,46,0.05);
+  }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--rojo);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(24,5,7,0.38);
+    margin-top: 5px;
+    line-height: 1.4;
+  }
+
+  .stat-sub {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: rgba(24,5,7,0.3);
+    margin-top: 1px;
+  }
+
+  /* PODIO */
+  .podium {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr 1fr;
+    gap: 12px;
+    align-items: end;
+    margin-bottom: 28px;
+  }
+
+  .podium-card {
+    border-radius: 14px 14px 0 0;
+    padding: 22px 14px 20px;
+    text-align: center;
+    border: 1.5px solid transparent;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+  }
+
+  .podium-card:hover { transform: translateY(-4px); }
+
+  .podium-1 {
+    border-color: var(--rojo);
+    padding-top: 30px;
+    box-shadow: 0 6px 24px rgba(200,16,46,0.16);
+  }
+
+  .podium-2 { border-color: rgba(122,122,122,0.4); }
+  .podium-3 { border-color: rgba(122,69,32,0.35); }
+
+  .podium-medal { font-size: 24px; margin-bottom: 10px; display: block; }
+
+  .podium-pos {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(24,5,7,0.35);
+    margin-bottom: 6px;
+  }
+
+  .podium-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(18px, 3.5vw, 26px);
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .podium-1 .podium-name { color: var(--rojo); }
+  .podium-2 .podium-name { color: var(--plata); }
+  .podium-3 .podium-name { color: var(--bronce); }
+
+  .podium-pts {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--negro);
+  }
+
+  .podium-pts-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(24,5,7,0.3);
+    margin-top: 3px;
+  }
+
+  .podium-extra { margin-top: 12px; font-size: 11px; color: rgba(24,5,7,0.45); }
+
+  .podium-extra span {
+    background: var(--gris-claro);
+    padding: 3px 9px;
+    border-radius: 10px;
+    margin: 2px;
+    display: inline-block;
+    font-weight: 500;
+  }
+
+  /* TABLE */
+  .table-wrapper {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid rgba(200,16,46,0.08);
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .table-header-row {
+    display: grid;
+    grid-template-columns: 40px 1fr 66px 72px 68px 68px;
+    padding: 11px 20px;
+    background: var(--rojo);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 40px 1fr 66px 72px 68px 68px;
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(200,16,46,0.05);
+    align-items: center;
+    transition: background 0.12s;
+  }
+
+  .table-row:hover { background: #fff5f6; }
+  .table-row:last-child { border-bottom: none; }
+  .table-row:nth-child(1) { background: #fff8f8; }
+
+  .row-pos {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: rgba(24,5,7,0.25);
+  }
+
+  .table-row:nth-child(1) .row-pos { color: var(--rojo); }
+
+  .row-name { font-weight: 500; font-size: 15px; color: var(--negro); }
+
+  .progress-bar-wrap {
+    margin-top: 5px; height: 2px;
+    background: rgba(200,16,46,0.07); border-radius: 2px; overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--rojo-oscuro), var(--rojo-claro));
+  }
+
+  .row-pts {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    text-align: right;
+    color: var(--negro);
+  }
+
+  .row-dinero { font-size: 13px; font-weight: 600; text-align: right; color: var(--verde-premio); }
+  .row-dinero.top { color: var(--rojo); font-size: 14px; font-weight: 700; }
+  .row-copita { font-size: 13px; font-weight: 600; text-align: right; color: var(--oro); }
+  .row-tablas { font-size: 13px; font-weight: 500; text-align: right; color: #4a7a9b; }
+  .cero { color: rgba(24,5,7,0.15) !important; font-weight: 400 !important; }
+
+  /* EQUIPOS */
+  .equipos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 10px;
+  }
+
+  .equipo-card {
+    background: white;
+    border: 1px solid rgba(200,16,46,0.1);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex; flex-direction: column; gap: 3px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+
+  .equipo-card:hover { border-color: rgba(200,16,46,0.4); box-shadow: 0 4px 16px rgba(200,16,46,0.09); }
+  .equipo-1 { border-color: var(--rojo); box-shadow: 0 4px 16px rgba(200,16,46,0.12); }
+
+  .equipo-pos {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 2px; color: rgba(24,5,7,0.35); text-transform: uppercase;
+  }
+
+  .equipo-1 .equipo-pos { color: var(--rojo); }
+
+  .equipo-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 19px; letter-spacing: -0.3px; color: var(--negro); line-height: 1.1;
+  }
+
+  .equipo-pts {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 26px; color: var(--rojo); margin-top: 6px;
+  }
+
+  .equipo-pts-label { font-size: 10px; color: rgba(24,5,7,0.3); text-transform: uppercase; letter-spacing: 1.5px; }
+
+  .footer {
+    text-align: center; margin-top: 52px; padding-top: 20px;
+    border-top: 1px solid rgba(200,16,46,0.08);
+    font-size: 11px; color: rgba(24,5,7,0.2); letter-spacing: 1px;
+  }
+
+  /* MÓVIL */
+  @media (max-width: 680px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    /* En móvil: 1º arriba, 2º y 3º debajo en fila */
+    .podium {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+    }
+    .podium-card { border-radius: 14px; }
+    /* Reordenar: 1º primero (fila 1, span 2), 2º y 3º debajo */
+    .podium-card.podium-2 { order: 2; }
+    .podium-card.podium-1 { order: 1; grid-column: span 2; border-radius: 14px; }
+    .podium-card.podium-3 { order: 3; }
+
+    .table-header-row, .table-row {
+      grid-template-columns: 30px 1fr 50px 54px 50px 50px;
+      padding: 10px 12px;
+    }
+    .row-name { font-size: 13px; }
+    .row-pts { font-size: 16px; }
+    .row-dinero, .row-copita, .row-tablas { font-size: 12px; }
+    .table-header-row { font-size: 9px; letter-spacing: 1.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-title">La Quiniela</div>
+  <div class="header-season">Temporada 2025 / 26</div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Estadísticas generales</div>
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">31</div>
+      <div class="stat-label">Jornadas jugadas</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num" style="font-size:22px">63,07€</div>
+      <div class="stat-label">Premio acumulado</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">J2</div>
+      <div class="stat-label">Mayor media<span class="stat-sub">7,88 pts</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">J30</div>
+      <div class="stat-label">Menor media<span class="stat-sub">4,00 pts</span></div>
+    </div>
+  </div>
+
+  <div class="section-label">Podio</div>
+  <div class="podium">
+    <div class="podium-card podium-2">
+      <div class="podium-medal">🥈</div>
+      <div class="podium-pos">2.º Puesto</div>
+      <div class="podium-name">Dani</div>
+      <div class="podium-pts">160</div>
+      <div class="podium-pts-label">puntos</div>
+      <div class="podium-extra"><span>1,58€</span><span>4 copitas</span></div>
+    </div>
+    <div class="podium-card podium-1">
+      <div class="podium-medal">🏆</div>
+      <div class="podium-pos">1.er Puesto</div>
+      <div class="podium-name">Leti</div>
+      <div class="podium-pts">173</div>
+      <div class="podium-pts-label">puntos</div>
+      <div class="podium-extra"><span>3,98€</span><span>3 copitas</span></div>
+    </div>
+    <div class="podium-card podium-3">
+      <div class="podium-medal">🥉</div>
+      <div class="podium-pos">3.er Puesto</div>
+      <div class="podium-name">Andrés IV</div>
+      <div class="podium-pts">143</div>
+      <div class="podium-pts-label">puntos</div>
+      <div class="podium-extra"><span>2,65€</span><span>4 copitas</span></div>
+    </div>
+  </div>
+
+  <div class="section-label">Clasificación individual</div>
+  <div class="table-wrapper">
+    <div class="table-header-row">
+      <div>Pos</div>
+      <div>Nombre</div>
+      <div style="text-align:right">Pts</div>
+      <div style="text-align:right">Premio</div>
+      <div style="text-align:right">Copitas</div>
+      <div style="text-align:right">Tablas</div>
+    </div>
+    <div class="table-row">
+      <div class="row-pos">1º</div>
+      <div><div class="row-name">Leti</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:100%"></div></div></div>
+      <div class="row-pts">173</div><div class="row-dinero">3,98€</div><div class="row-copita">3</div><div class="row-tablas cero">—</div>
+    </div>
+    <div class="table-row">
+      <div class="row-pos">2º</div>
+      <div><div class="row-name">Dani</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:92%"></div></div></div>
+      <div class="row-pts">160</div><div class="row-dinero">1,58€</div><div class="row-copita">4</div><div class="row-tablas cero">—</div>
+    </div>
+    <div class="table-row">
+      <div class="row-pos">3º</div>
+      <div><div class="row-name">Andrés IV</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:83%"></div></div></div>
+      <div class="row-pts">143</div><div class="row-dinero">2,65€</div><div class="row-copita">4</div><div class="row-tablas cero">—</div>
+    </div>
+    <div class="table-row">
+      <div class="row-pos">4º</div>
+      <div><div class="row-name">Jorge II</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:82%"></div></div></div>
+      <div class="row-pts">142</div><div class="row-dinero">6,54€</div><div class="row-copita">2</div><div class="row-tablas cero">—</div>
+    </div>
+    <div class="table-row">
+      <div class="row-pos">5º</div>
+      <div><div class="row-name">Josito I</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:81%"></div></div></div>
+      <div class="row-pts">141</div><div class="row-dinero">5,89€</div><div class="row-copita">6</div><div class="row-tablas cero">—</div>
+    </div>
+    <div class="table-row">
+      <div class="row-pos">6º</div>
+      <div><div class="row-name">Tomás II</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:81%"></div></div></div>
+      <div class="row-pts">140</div><div class="row-dinero cero">—</div><div class="row-copita">4</div><div class="row-tablas cero">—</div>
+    </div>
+    <div class="table-row">
+      <div class="row-pos">7º</div>
+      <div><div class="row-name">Luis II</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:75%"></div></div></div>
+      <div class="row-pts">130</div><div class="row-dinero top">39,32€</div><div class="row-copita">2</div><div class="row-tablas cero">—</div>
+    </div>
+    <div class="table-row">
+      <div class="row-pos">8º</div>
+      <div><div class="row-name">Javi II</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:69%"></div></div></div>
+      <div class="row-pts">120</div><div class="row-dinero cero">—</div><div class="row-copita">2</div><div class="row-tablas cero">—</div>
+    </div>
+    <div class="table-row">
+      <div class="row-pos">9º</div>
+      <div><div class="row-name">Fernando II</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:68%"></div></div></div>
+      <div class="row-pts">118</div><div class="row-dinero">3,11€</div><div class="row-copita">2</div><div class="row-tablas cero">—</div>
+    </div>
+    <div class="table-row">
+      <div class="row-pos">10º</div>
+      <div><div class="row-name">Junis</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:65%"></div></div></div>
+      <div class="row-pts">112</div><div class="row-dinero cero">—</div><div class="row-copita">2</div><div class="row-tablas cero">—</div>
+    </div>
+    <div class="table-row">
+      <div class="row-pos">11º</div>
+      <div><div class="row-name">Cristina</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:59%"></div></div></div>
+      <div class="row-pts">102</div><div class="row-dinero cero">—</div><div class="row-copita cero">—</div><div class="row-tablas cero">—</div>
+    </div>
+    <div class="table-row">
+      <div class="row-pos">12º</div>
+      <div><div class="row-name">Mamá</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:42%"></div></div></div>
+      <div class="row-pts">72</div><div class="row-dinero cero">—</div><div class="row-copita cero">—</div><div class="row-tablas cero">—</div>
+    </div>
+  </div>
+
+  <div class="section-label">Clasificación por equipos</div>
+  <div class="equipos-grid">
+    <div class="equipo-card equipo-1">
+      <div class="equipo-pos">🏆 1.er lugar</div>
+      <div class="equipo-name">Whisky Juice</div>
+      <div class="equipo-pts">473</div>
+      <div class="equipo-pts-label">puntos totales</div>
+    </div>
+    <div class="equipo-card">
+      <div class="equipo-pos">🥈 2.º lugar</div>
+      <div class="equipo-name">CampeoneX</div>
+      <div class="equipo-pts">389</div>
+      <div class="equipo-pts-label">puntos totales</div>
+    </div>
+    <div class="equipo-card">
+      <div class="equipo-pos">🥉 3.er lugar</div>
+      <div class="equipo-name">La Dictadura</div>
+      <div class="equipo-pts">357</div>
+      <div class="equipo-pts-label">puntos totales</div>
+    </div>
+    <div class="equipo-card">
+      <div class="equipo-pos">4.º lugar</div>
+      <div class="equipo-name">La Cabina</div>
+      <div class="equipo-pts">334</div>
+      <div class="equipo-pts-label">puntos totales</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>La Quiniela · 2025/26 · Actualizado jornada 31</p>
+  </div>
+
+</div>
+</body>
+</html>
