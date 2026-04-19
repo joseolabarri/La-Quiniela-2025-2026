@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tablas — La Quiniela 2025/26</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rojo: #c8102e;
+    --rojo-oscuro: #8c0b1f;
+    --rojo-claro: #e8203f;
+    --fondo: #faf7f7;
+    --gris-claro: #f0e8e9;
+    --negro: #180507;
+    --oro: #b8830f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--fondo);
+    min-height: 100vh;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--negro);
+    padding: 0 0 64px 0;
+  }
+
+  .header {
+    background: linear-gradient(150deg, var(--rojo-oscuro) 0%, var(--rojo) 55%, var(--rojo-claro) 100%);
+    padding: 36px 20px 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 32px rgba(200,16,46,0.3);
+  }
+
+  .header::before {
+    content: 'TABLAS';
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 200px;
+    letter-spacing: 30px;
+    color: rgba(255,255,255,0.035);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .header-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+  }
+
+  .back-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .back-btn:hover { background: rgba(255,255,255,0.25); }
+
+  .header-text { flex: 1; }
+
+  .header-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 7vw, 60px);
+    letter-spacing: -1px;
+    color: white;
+    line-height: 0.95;
+  }
+
+  .header-season {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.9);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+
+  .container { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+  /* SELECTOR DE PARTICIPANTES */
+  .selector-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--fondo);
+    padding: 14px 0 10px;
+    border-bottom: 1px solid rgba(200,16,46,0.08);
+    margin-bottom: 8px;
+  }
+
+  .selector-scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .selector-scroll::-webkit-scrollbar { display: none; }
+
+  .selector-btn {
+    flex-shrink: 0;
+    background: white;
+    border: 1.5px solid rgba(200,16,46,0.15);
+    color: var(--negro);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .selector-btn:hover { border-color: var(--rojo); color: var(--rojo); }
+  .selector-btn.active { background: var(--rojo); border-color: var(--rojo); color: white; }
+
+  /* CARDS DE PRONÓSTICOS */
+  .participant-section { display: none; }
+  .participant-section.active { display: block; }
+
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin: 28px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(200,16,46,0.25), transparent);
+  }
+
+  .participant-header {
+    background: white;
+    border: 1px solid rgba(200,16,46,0.12);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  }
+
+  .participant-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    color: var(--rojo);
+    margin-bottom: 4px;
+  }
+
+  .participant-subtitle {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(24,5,7,0.35);
+  }
+
+  .pronosticos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .prono-card {
+    background: white;
+    border: 1px solid rgba(200,16,46,0.1);
+    border-radius: 12px;
+    padding: 14px 16px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+  }
+
+  .prono-card.doble {
+    border-color: var(--rojo);
+    background: linear-gradient(135deg, #fff8f8, white);
+  }
+
+  .prono-card.fallado {
+    border-color: rgba(0,0,0,0.1);
+    background: #f5f5f5;
+    opacity: 0.7;
+  }
+
+  .prono-card.doble.fallado {
+    border-color: rgba(200,16,46,0.25);
+    background: #f7f2f2;
+    opacity: 0.7;
+  }
+
+  .prono-card.fallado .prono-label { color: rgba(24,5,7,0.3); }
+  .prono-card.fallado .prono-pts { background: rgba(0,0,0,0.12); color: rgba(24,5,7,0.5); }
+  .prono-card.fallado .prono-value { color: rgba(24,5,7,0.35); text-decoration: line-through; }
+
+  .fallado-nota {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(24,5,7,0.35);
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+  }
+
+  .list-card.fallado {
+    background: #f5f5f5;
+    border-color: rgba(0,0,0,0.08);
+    opacity: 0.7;
+  }
+
+  .list-card.fallado .list-title { color: rgba(24,5,7,0.3); }
+  .list-card.fallado .list-pts-badge { background: rgba(0,0,0,0.15); }
+  .list-card.fallado .list-item { color: rgba(24,5,7,0.35); text-decoration: line-through; }
+  .list-card.fallado .list-item-num { background: rgba(0,0,0,0.06); }
+
+  .prono-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(24,5,7,0.35);
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+
+  .prono-card.doble .prono-label { color: var(--rojo); }
+
+  .prono-pts {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    color: white;
+    background: rgba(24,5,7,0.2);
+    padding: 1px 7px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+  }
+
+  .prono-card.doble .prono-pts { background: var(--rojo); }
+
+  .prono-value {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--negro);
+    line-height: 1.2;
+  }
+
+  /* LISTAS (Champions, descensos, etc.) */
+  .list-card {
+    background: white;
+    border: 1px solid rgba(200,16,46,0.1);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+  }
+
+  .list-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(24,5,7,0.35);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .list-pts-badge {
+    font-size: 10px;
+    font-weight: 600;
+    color: white;
+    background: var(--rojo);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .list-items { display: flex; flex-direction: column; gap: 6px; }
+
+  .list-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--negro);
+  }
+
+  .list-item-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--gris-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(24,5,7,0.4);
+    flex-shrink: 0;
+  }
+
+  .lists-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .pronosticos-grid { grid-template-columns: 1fr; }
+    .lists-two-col { grid-template-columns: 1fr; }
+    .header-title { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <a href="index.html" class="back-btn">← Volver</a>
+    <div class="header-text">
+      <div class="header-title">Tablas</div>
+      <div class="header-season">Pronósticos 2025 / 26</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="selector-wrap">
+    <div class="selector-scroll">
+      <button class="selector-btn active" onclick="mostrar('mama')">Mamá</button>
+      <button class="selector-btn" onclick="mostrar('javi')">Javi</button>
+      <button class="selector-btn" onclick="mostrar('dani')">Dani</button>
+      <button class="selector-btn" onclick="mostrar('leti')">Leti</button>
+      <button class="selector-btn" onclick="mostrar('andres')">Andrés</button>
+      <button class="selector-btn" onclick="mostrar('tomas')">Tomás</button>
+      <button class="selector-btn" onclick="mostrar('luis')">Luis</button>
+      <button class="selector-btn" onclick="mostrar('jorge')">Jorge</button>
+      <button class="selector-btn" onclick="mostrar('jose')">José</button>
+      <button class="selector-btn" onclick="mostrar('cristina')">Cristina</button>
+      <button class="selector-btn" onclick="mostrar('fernando')">Fernando</button>
+      <button class="selector-btn" onclick="mostrar('junis')">Junis</button>
+    </div>
+  </div>
+
+  <!-- MAMÁ -->
+  <div class="participant-section active" id="sec-mama">
+    <div class="participant-header">
+      <div class="participant-name">Mamá</div>
+      <div class="participant-subtitle">Pronósticos de temporada</div>
+    </div>
+    <div class="pronosticos-grid">
+      <div class="prono-card"><div class="prono-label">Campeón de la Liga</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Trofeo Zarra</div><div class="prono-pts">5 pts</div><div class="prono-value">Borja Iglesias</div></div>
+      <div class="prono-card doble"><div class="prono-label">Pichichi ★ doble</div><div class="prono-pts">10 pts</div><div class="prono-value">Mbappé</div></div>
+      <div class="prono-card"><div class="prono-label">Máx. goleador</div><div class="prono-pts">5 pts</div><div class="prono-value">Barcelona</div></div>
+      <div class="prono-card"><div class="prono-label">Menos goleado</div><div class="prono-pts">5 pts</div><div class="prono-value">Atlético Madrid</div></div>
+      <div class="prono-card fallado"><div class="prono-label">1.º en destituir entrenador</div><div class="prono-pts">5 pts</div><div class="prono-value">Levante</div><div class="fallado-nota">✗ Fue el Oviedo</div></div>
+    </div>
+    <div class="lists-two-col">
+      <div class="list-card">
+        <div class="list-title">Champions League <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">1</div>Real Madrid</div>
+          <div class="list-item"><div class="list-item-num">2</div>Barcelona</div>
+          <div class="list-item"><div class="list-item-num">3</div>Atlético Madrid</div>
+          <div class="list-item"><div class="list-item-num">4</div>Villarreal</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">5.ª y 6.ª posición <span class="list-pts-badge">5 pts c/u</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">5</div>Athletic Bilbao</div>
+          <div class="list-item"><div class="list-item-num">6</div>Betis</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 2.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Elche</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Sevilla</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Oviedo</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Ascenso a 1.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↑</div>Eibar</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Mirandés</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Cultural Leonesa</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 1.ª RFEF <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Cultural Leonesa</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Andorra</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Huesca</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Ceuta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVI -->
+  <div class="participant-section" id="sec-javi">
+    <div class="participant-header">
+      <div class="participant-name">Javi</div>
+      <div class="participant-subtitle">Pronósticos de temporada</div>
+    </div>
+    <div class="pronosticos-grid">
+      <div class="prono-card"><div class="prono-label">Campeón de la Liga</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Trofeo Zarra</div><div class="prono-pts">5 pts</div><div class="prono-value">Ayoze Pérez</div></div>
+      <div class="prono-card doble"><div class="prono-label">Pichichi ★ doble</div><div class="prono-pts">10 pts</div><div class="prono-value">Mbappé</div></div>
+      <div class="prono-card"><div class="prono-label">Máx. goleador</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Menos goleado</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card fallado"><div class="prono-label">1.º en destituir entrenador</div><div class="prono-pts">5 pts</div><div class="prono-value">Levante</div><div class="fallado-nota">✗ Fue el Oviedo</div></div>
+    </div>
+    <div class="lists-two-col">
+      <div class="list-card">
+        <div class="list-title">Champions League <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">1</div>Real Madrid</div>
+          <div class="list-item"><div class="list-item-num">2</div>Barcelona</div>
+          <div class="list-item"><div class="list-item-num">3</div>Atlético de Madrid</div>
+          <div class="list-item"><div class="list-item-num">4</div>Real Sociedad</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">5.ª y 6.ª posición <span class="list-pts-badge">5 pts c/u</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">5</div>Villarreal</div>
+          <div class="list-item"><div class="list-item-num">6</div>Betis</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 2.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Elche</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Levante</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Getafe</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Ascenso a 1.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↑</div>Racing de Santander</div>
+          <div class="list-item"><div class="list-item-num">↑</div>U.D. Las Palmas</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Leganés</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 1.ª RFEF <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Cultural Leonesa</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Ceuta</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Albacete</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Mirandés</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DANI -->
+  <div class="participant-section" id="sec-dani">
+    <div class="participant-header">
+      <div class="participant-name">Dani</div>
+      <div class="participant-subtitle">Pronósticos de temporada</div>
+    </div>
+    <div class="pronosticos-grid">
+      <div class="prono-card doble"><div class="prono-label">Campeón de la Liga ★ doble</div><div class="prono-pts">10 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Trofeo Zarra</div><div class="prono-pts">5 pts</div><div class="prono-value">Kike García</div></div>
+      <div class="prono-card"><div class="prono-label">Pichichi</div><div class="prono-pts">5 pts</div><div class="prono-value">Mbappé</div></div>
+      <div class="prono-card"><div class="prono-label">Máx. goleador</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Menos goleado</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card fallado"><div class="prono-label">1.º en destituir entrenador</div><div class="prono-pts">5 pts</div><div class="prono-value">Alavés</div><div class="fallado-nota">✗ Fue el Oviedo</div></div>
+    </div>
+    <div class="lists-two-col">
+      <div class="list-card">
+        <div class="list-title">Champions League <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">1</div>Real Madrid</div>
+          <div class="list-item"><div class="list-item-num">2</div>Barcelona</div>
+          <div class="list-item"><div class="list-item-num">3</div>Atlético Madrid</div>
+          <div class="list-item"><div class="list-item-num">4</div>Villarreal</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">5.ª y 6.ª posición <span class="list-pts-badge">5 pts c/u</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">5</div>Betis</div>
+          <div class="list-item"><div class="list-item-num">6</div>Athletic Bilbao</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 2.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Alavés</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Oviedo</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Elche</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Ascenso a 1.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↑</div>Valladolid</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Málaga</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Zaragoza</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 1.ª RFEF <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Burgos</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Mirandés</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Real Sociedad B</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Ceuta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LETI -->
+  <div class="participant-section" id="sec-leti">
+    <div class="participant-header">
+      <div class="participant-name">Leti</div>
+      <div class="participant-subtitle">Pronósticos de temporada</div>
+    </div>
+    <div class="pronosticos-grid">
+      <div class="prono-card"><div class="prono-label">Campeón de la Liga</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Trofeo Zarra</div><div class="prono-pts">5 pts</div><div class="prono-value">Lamine Yamal</div></div>
+      <div class="prono-card"><div class="prono-card doble" style="border:none;padding:0"><div class="prono-label" style="margin-bottom:5px">Pichichi ★ doble</div><div class="prono-pts" style="background:var(--rojo)">10 pts</div><div class="prono-value" style="margin-top:6px">Mbappé</div></div></div>
+      <div class="prono-card"><div class="prono-label">Máx. goleador</div><div class="prono-pts">5 pts</div><div class="prono-value">Barcelona</div></div>
+      <div class="prono-card"><div class="prono-label">Menos goleado</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card fallado"><div class="prono-label">1.º en destituir entrenador</div><div class="prono-pts">5 pts</div><div class="prono-value">Sevilla</div><div class="fallado-nota">✗ Fue el Oviedo</div></div>
+    </div>
+    <div class="lists-two-col">
+      <div class="list-card">
+        <div class="list-title">Champions League <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">1</div>Real Madrid</div>
+          <div class="list-item"><div class="list-item-num">2</div>Barcelona</div>
+          <div class="list-item"><div class="list-item-num">3</div>Atlético de Madrid</div>
+          <div class="list-item"><div class="list-item-num">4</div>Athletic de Bilbao</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">5.ª y 6.ª posición <span class="list-pts-badge">5 pts c/u</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">5</div>Betis</div>
+          <div class="list-item"><div class="list-item-num">6</div>Real Sociedad</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 2.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Levante</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Elche</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Real Oviedo</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Ascenso a 1.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↑</div>Leganés</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Cádiz</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Málaga</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 1.ª RFEF <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Ceuta</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Real Sociedad B</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Mirandés</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Cultural Leonesa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANDRÉS -->
+  <div class="participant-section" id="sec-andres">
+    <div class="participant-header">
+      <div class="participant-name">Andrés</div>
+      <div class="participant-subtitle">Pronósticos de temporada</div>
+    </div>
+    <div class="pronosticos-grid">
+      <div class="prono-card"><div class="prono-label">Campeón de la Liga</div><div class="prono-pts">5 pts</div><div class="prono-value">Barcelona</div></div>
+      <div class="prono-card"><div class="prono-label">Trofeo Zarra</div><div class="prono-pts">5 pts</div><div class="prono-value">Lamine</div></div>
+      <div class="prono-card"><div class="prono-label">Pichichi</div><div class="prono-pts">5 pts</div><div class="prono-value">Mbappé</div></div>
+      <div class="prono-card"><div class="prono-label">Máx. goleador</div><div class="prono-pts">5 pts</div><div class="prono-value">Barcelona</div></div>
+      <div class="prono-card"><div class="prono-label">Menos goleado</div><div class="prono-pts">5 pts</div><div class="prono-value">Atlético Madrid</div></div>
+      <div class="prono-card doble fallado"><div class="prono-label">1.º en destituir entrenador ★ doble</div><div class="prono-pts">10 pts</div><div class="prono-value">Elche</div><div class="fallado-nota">✗ Fue el Oviedo</div></div>
+    </div>
+    <div class="lists-two-col">
+      <div class="list-card">
+        <div class="list-title">Champions League <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">1</div>Barcelona</div>
+          <div class="list-item"><div class="list-item-num">2</div>Real Madrid</div>
+          <div class="list-item"><div class="list-item-num">3</div>Atlético Madrid</div>
+          <div class="list-item"><div class="list-item-num">4</div>Athletic Bilbao</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">5.ª y 6.ª posición <span class="list-pts-badge">5 pts c/u</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">5</div>Betis</div>
+          <div class="list-item"><div class="list-item-num">6</div>Real Sociedad</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 2.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Elche</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Oviedo</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Levante</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Ascenso a 1.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↑</div>Valladolid</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Las Palmas</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Leganés</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 1.ª RFEF <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Andorra</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Ceuta</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Real Sociedad B</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Cultural Leonesa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOMÁS -->
+  <div class="participant-section" id="sec-tomas">
+    <div class="participant-header">
+      <div class="participant-name">Tomás</div>
+      <div class="participant-subtitle">Pronósticos de temporada</div>
+    </div>
+    <div class="pronosticos-grid">
+      <div class="prono-card"><div class="prono-label">Campeón de la Liga</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Trofeo Zarra</div><div class="prono-pts">5 pts</div><div class="prono-value">Hugo Duro</div></div>
+      <div class="prono-card"><div class="prono-label">Pichichi</div><div class="prono-pts">5 pts</div><div class="prono-value">Mbappé</div></div>
+      <div class="prono-card"><div class="prono-label">Máx. goleador</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Menos goleado</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card doble fallado"><div class="prono-label">1.º en destituir entrenador ★ doble</div><div class="prono-pts">10 pts</div><div class="prono-value">Real Sociedad</div><div class="fallado-nota">✗ Fue el Oviedo</div></div>
+    </div>
+    <div class="lists-two-col">
+      <div class="list-card">
+        <div class="list-title">Champions League <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">1</div>Real Madrid</div>
+          <div class="list-item"><div class="list-item-num">2</div>Barcelona</div>
+          <div class="list-item"><div class="list-item-num">3</div>Atlético Madrid</div>
+          <div class="list-item"><div class="list-item-num">4</div>Ath. Bilbao</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">5.ª y 6.ª posición <span class="list-pts-badge">5 pts c/u</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">5</div>Villarreal</div>
+          <div class="list-item"><div class="list-item-num">6</div>Betis</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 2.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Girona</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Espanyol</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Elche</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Ascenso a 1.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↑</div>Leganés</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Cádiz</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Almería</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 1.ª RFEF <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Mirandés</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Real Sociedad B</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Cultural Leonesa</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Ceuta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LUIS -->
+  <div class="participant-section" id="sec-luis">
+    <div class="participant-header">
+      <div class="participant-name">Luis</div>
+      <div class="participant-subtitle">Pronósticos de temporada</div>
+    </div>
+    <div class="pronosticos-grid">
+      <div class="prono-card doble"><div class="prono-label">Campeón de la Liga ★ doble</div><div class="prono-pts">10 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Trofeo Zarra</div><div class="prono-pts">5 pts</div><div class="prono-value">Gonzalo</div></div>
+      <div class="prono-card"><div class="prono-label">Pichichi</div><div class="prono-pts">5 pts</div><div class="prono-value">Mbappé</div></div>
+      <div class="prono-card"><div class="prono-label">Máx. goleador</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Menos goleado</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card fallado"><div class="prono-label">1.º en destituir entrenador</div><div class="prono-pts">5 pts</div><div class="prono-value">Alavés</div><div class="fallado-nota">✗ Fue el Oviedo</div></div>
+    </div>
+    <div class="lists-two-col">
+      <div class="list-card">
+        <div class="list-title">Champions League <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">1</div>Real Madrid</div>
+          <div class="list-item"><div class="list-item-num">2</div>Barça</div>
+          <div class="list-item"><div class="list-item-num">3</div>Atlético de Madrid</div>
+          <div class="list-item"><div class="list-item-num">4</div>Villarreal</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">5.ª y 6.ª posición <span class="list-pts-badge">5 pts c/u</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">5</div>Betis</div>
+          <div class="list-item"><div class="list-item-num">6</div>Ath. Bilbao</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 2.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Alavés</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Getafe</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Elche</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Ascenso a 1.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↑</div>Granada</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Leganés</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Cádiz</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 1.ª RFEF <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Mirandés</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Real Sociedad B</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Andorra</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Córdoba</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JORGE -->
+  <div class="participant-section" id="sec-jorge">
+    <div class="participant-header">
+      <div class="participant-name">Jorge</div>
+      <div class="participant-subtitle">Pronósticos de temporada</div>
+    </div>
+    <div class="pronosticos-grid">
+      <div class="prono-card"><div class="prono-label">Campeón de la Liga</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Trofeo Zarra</div><div class="prono-pts">5 pts</div><div class="prono-value">Lamine Yamal</div></div>
+      <div class="prono-card doble"><div class="prono-label">Pichichi ★ doble</div><div class="prono-pts">10 pts</div><div class="prono-value">Mbappé</div></div>
+      <div class="prono-card"><div class="prono-label">Máx. goleador</div><div class="prono-pts">5 pts</div><div class="prono-value">Barcelona</div></div>
+      <div class="prono-card"><div class="prono-label">Menos goleado</div><div class="prono-pts">5 pts</div><div class="prono-value">Atlético de Madrid</div></div>
+      <div class="prono-card fallado"><div class="prono-label">1.º en destituir entrenador</div><div class="prono-pts">5 pts</div><div class="prono-value">Sevilla</div><div class="fallado-nota">✗ Fue el Oviedo</div></div>
+    </div>
+    <div class="lists-two-col">
+      <div class="list-card">
+        <div class="list-title">Champions League <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">1</div>Real Madrid</div>
+          <div class="list-item"><div class="list-item-num">2</div>Barcelona</div>
+          <div class="list-item"><div class="list-item-num">3</div>Atlético de Madrid</div>
+          <div class="list-item"><div class="list-item-num">4</div>Villarreal</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">5.ª y 6.ª posición <span class="list-pts-badge">5 pts c/u</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">5</div>Real Sociedad</div>
+          <div class="list-item"><div class="list-item-num">6</div>Betis</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 2.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Girona</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Oviedo</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Elche</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Ascenso a 1.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↑</div>Cádiz</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Huesca</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Racing de Santander</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 1.ª RFEF <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Cultural Leonesa</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Córdoba</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Castellón</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Ceuta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOSÉ -->
+  <div class="participant-section" id="sec-jose">
+    <div class="participant-header">
+      <div class="participant-name">José</div>
+      <div class="participant-subtitle">Pronósticos de temporada</div>
+    </div>
+    <div class="pronosticos-grid">
+      <div class="prono-card"><div class="prono-label">Campeón de la Liga</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card doble"><div class="prono-label">Trofeo Zarra ★ doble</div><div class="prono-pts">10 pts</div><div class="prono-value">Lamine Yamal</div></div>
+      <div class="prono-card"><div class="prono-label">Pichichi</div><div class="prono-pts">5 pts</div><div class="prono-value">Kylian Mbappé</div></div>
+      <div class="prono-card"><div class="prono-label">Máx. goleador</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Menos goleado</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card fallado"><div class="prono-label">1.º en destituir entrenador</div><div class="prono-pts">5 pts</div><div class="prono-value">Espanyol</div><div class="fallado-nota">✗ Fue el Oviedo</div></div>
+    </div>
+    <div class="lists-two-col">
+      <div class="list-card">
+        <div class="list-title">Champions League <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">1</div>Real Madrid</div>
+          <div class="list-item"><div class="list-item-num">2</div>Barcelona</div>
+          <div class="list-item"><div class="list-item-num">3</div>Atlético de Madrid</div>
+          <div class="list-item"><div class="list-item-num">4</div>Ath. Bilbao</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">5.ª y 6.ª posición <span class="list-pts-badge">5 pts c/u</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">5</div>Villarreal</div>
+          <div class="list-item"><div class="list-item-num">6</div>Osasuna</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 2.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Espanyol</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Girona</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Alavés</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Ascenso a 1.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↑</div>Albacete</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Burgos</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Córdoba</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 1.ª RFEF <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Cádiz</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Real Zaragoza</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Huesca</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Mirandés</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CRISTINA -->
+  <div class="participant-section" id="sec-cristina">
+    <div class="participant-header">
+      <div class="participant-name">Cristina</div>
+      <div class="participant-subtitle">Pronósticos de temporada</div>
+    </div>
+    <div class="pronosticos-grid">
+      <div class="prono-card"><div class="prono-label">Campeón de la Liga</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Trofeo Zarra</div><div class="prono-pts">5 pts</div><div class="prono-value">Lamine Yamal</div></div>
+      <div class="prono-card"><div class="prono-label">Pichichi</div><div class="prono-pts">5 pts</div><div class="prono-value">Mbappé</div></div>
+      <div class="prono-card"><div class="prono-label">Máx. goleador</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Menos goleado</div><div class="prono-pts">5 pts</div><div class="prono-value">Barcelona</div></div>
+      <div class="prono-card doble fallado"><div class="prono-label">1.º en destituir entrenador ★ doble</div><div class="prono-pts">10 pts</div><div class="prono-value">Alavés</div><div class="fallado-nota">✗ Fue el Oviedo</div></div>
+    </div>
+    <div class="lists-two-col">
+      <div class="list-card">
+        <div class="list-title">Champions League <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">1</div>Real Madrid</div>
+          <div class="list-item"><div class="list-item-num">2</div>Barcelona</div>
+          <div class="list-item"><div class="list-item-num">3</div>Atlético de Madrid</div>
+          <div class="list-item"><div class="list-item-num">4</div>Ath. Bilbao</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">5.ª y 6.ª posición <span class="list-pts-badge">5 pts c/u</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">5</div>Real Sociedad</div>
+          <div class="list-item"><div class="list-item-num">6</div>Betis</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 2.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Elche</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Alavés</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Levante</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Ascenso a 1.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↑</div>Málaga</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Granada</div>
+          <div class="list-item"><div class="list-item-num">↑</div>U.D. Las Palmas</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 1.ª RFEF <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Ceuta</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Real Sociedad B</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Cultural Leonesa</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Burgos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FERNANDO -->
+  <div class="participant-section" id="sec-fernando">
+    <div class="participant-header">
+      <div class="participant-name">Fernando</div>
+      <div class="participant-subtitle">Pronósticos de temporada</div>
+    </div>
+    <div class="pronosticos-grid">
+      <div class="prono-card"><div class="prono-label">Campeón de la Liga</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Trofeo Zarra</div><div class="prono-pts">5 pts</div><div class="prono-value">Borja Mayoral</div></div>
+      <div class="prono-card doble"><div class="prono-label">Pichichi ★ doble</div><div class="prono-pts">10 pts</div><div class="prono-value">Mbappé</div></div>
+      <div class="prono-card"><div class="prono-label">Máx. goleador</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card"><div class="prono-label">Menos goleado</div><div class="prono-pts">5 pts</div><div class="prono-value">Real Madrid</div></div>
+      <div class="prono-card fallado"><div class="prono-label">1.º en destituir entrenador</div><div class="prono-pts">5 pts</div><div class="prono-value">Alavés</div><div class="fallado-nota">✗ Fue el Oviedo</div></div>
+    </div>
+    <div class="lists-two-col">
+      <div class="list-card">
+        <div class="list-title">Champions League <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">1</div>Real Madrid</div>
+          <div class="list-item"><div class="list-item-num">2</div>Barcelona</div>
+          <div class="list-item"><div class="list-item-num">3</div>Atlético de Madrid</div>
+          <div class="list-item"><div class="list-item-num">4</div>Real Betis</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">5.ª y 6.ª posición <span class="list-pts-badge">5 pts c/u</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">5</div>Athletic Bilbao</div>
+          <div class="list-item"><div class="list-item-num">6</div>Villarreal</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 2.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Girona</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Real Sociedad</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Alavés</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Ascenso a 1.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↑</div>Racing de Santander</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Leganés</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Huesca</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 1.ª RFEF <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Real Valladolid</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Cultural Leonesa</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Eibar</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Ceuta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JUNIS -->
+  <div class="participant-section" id="sec-junis">
+    <div class="participant-header">
+      <div class="participant-name">Junis</div>
+      <div class="participant-subtitle">Pronósticos de temporada</div>
+    </div>
+    <div class="pronosticos-grid">
+      <div class="prono-card doble"><div class="prono-label">Campeón de la Liga ★ doble</div><div class="prono-pts">10 pts</div><div class="prono-value">F.C. Barcelona</div></div>
+      <div class="prono-card"><div class="prono-label">Trofeo Zarra</div><div class="prono-pts">5 pts</div><div class="prono-value">Oihan Sancet</div></div>
+      <div class="prono-card"><div class="prono-label">Pichichi</div><div class="prono-pts">5 pts</div><div class="prono-value">Lewandowski</div></div>
+      <div class="prono-card"><div class="prono-label">Máx. goleador</div><div class="prono-pts">5 pts</div><div class="prono-value">F.C. Barcelona</div></div>
+      <div class="prono-card"><div class="prono-label">Menos goleado</div><div class="prono-pts">5 pts</div><div class="prono-value">Ath. Bilbao</div></div>
+      <div class="prono-card fallado"><div class="prono-label">1.º en destituir entrenador</div><div class="prono-pts">5 pts</div><div class="prono-value">Elche</div><div class="fallado-nota">✗ Fue el Oviedo</div></div>
+    </div>
+    <div class="lists-two-col">
+      <div class="list-card">
+        <div class="list-title">Champions League <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">1</div>F.C. Barcelona</div>
+          <div class="list-item"><div class="list-item-num">2</div>Real Madrid</div>
+          <div class="list-item"><div class="list-item-num">3</div>Atlético de Madrid</div>
+          <div class="list-item"><div class="list-item-num">4</div>Ath. Bilbao</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">5.ª y 6.ª posición <span class="list-pts-badge">5 pts c/u</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">5</div>Villarreal</div>
+          <div class="list-item"><div class="list-item-num">6</div>Betis</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 2.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Mallorca</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Girona</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Elche</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Ascenso a 1.ª <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↑</div>Mirandés</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Almería</div>
+          <div class="list-item"><div class="list-item-num">↑</div>Racing Santander</div>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-title">Descenso a 1.ª RFEF <span class="list-pts-badge">2+4+15 pts</span></div>
+        <div class="list-items">
+          <div class="list-item"><div class="list-item-num">↓</div>Cultural Leonesa</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Castellón</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Andorra</div>
+          <div class="list-item"><div class="list-item-num">↓</div>Huesca</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function mostrar(id) {
+  document.querySelectorAll('.participant-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.selector-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
