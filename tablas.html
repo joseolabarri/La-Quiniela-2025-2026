@@ -55,6 +55,7 @@ body{background-color:var(--fondo);min-height:100vh;font-family:'DM Sans',sans-s
 .li.ok .ln{background:var(--verde);color:white}.li.pa .ln{background:#0891b2;color:white}.li.ko .ln{background:rgba(0,0,0,0.1);color:rgba(24,5,7,0.3)}
 .lp{margin-left:auto;font-size:11px;font-weight:700;color:var(--verde)}
 .l2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.excl{background:#b8830f;color:white;padding:1px 5px;border-radius:6px;font-size:9px;margin-left:3px}
 @media(max-width:600px){.pronosticos-grid{grid-template-columns:1fr}.l2{grid-template-columns:1fr}.header-title{font-size:30px}.selector-btn{font-size:12px;padding:6px 12px}}
 </style>
 </head>
@@ -62,22 +63,61 @@ body{background-color:var(--fondo);min-height:100vh;font-family:'DM Sans',sans-s
 <div class="header"><div class="header-inner"><a href="index.html" class="back-btn">← Volver</a><div class="header-text"><div class="header-title">Tablas</div><div class="header-season">Pronósticos 2025 / 26</div></div></div></div>
 <div class="container">
 <div class="selector-wrap"><div class="selector-scroll">
-<button class="selector-btn active" onclick="mostrar('junis')">Junis (48)</button>
-<button class="selector-btn" onclick="mostrar('leti')">Leti (42)</button>
-<button class="selector-btn" onclick="mostrar('andres')">Andrés (41)</button>
-<button class="selector-btn" onclick="mostrar('jorge')">Jorge (34)</button>
-<button class="selector-btn" onclick="mostrar('jose')">José (32)</button>
-<button class="selector-btn" onclick="mostrar('mama')">Mamá (29)</button>
-<button class="selector-btn" onclick="mostrar('dani')">Dani (25)</button>
-<button class="selector-btn" onclick="mostrar('luis')">Luis (23)</button>
-<button class="selector-btn" onclick="mostrar('fernando')">Fernando (23)</button>
-<button class="selector-btn" onclick="mostrar('javi')">Javi (21)</button>
-<button class="selector-btn" onclick="mostrar('tomas')">Tomás (18)</button>
-<button class="selector-btn" onclick="mostrar('cristina')">Cristina (16)</button>
+<button class="selector-btn active" onclick="mostrar('junis')">Junis (52)</button>
+<button class="selector-btn" onclick="mostrar('leti')">Leti (46)</button>
+<button class="selector-btn" onclick="mostrar('andres')">Andrés (43)</button>
+<button class="selector-btn" onclick="mostrar('jose')">José (43)</button>
+<button class="selector-btn" onclick="mostrar('jorge')">Jorge (36)</button>
+<button class="selector-btn" onclick="mostrar('mama')">Mamá (33)</button>
+<button class="selector-btn" onclick="mostrar('javi')">Javi (31)</button>
+<button class="selector-btn" onclick="mostrar('fernando')">Fernando (31)</button>
+<button class="selector-btn" onclick="mostrar('tomas')">Tomás (30)</button>
+<button class="selector-btn" onclick="mostrar('luis')">Luis (29)</button>
+<button class="selector-btn" onclick="mostrar('dani')">Dani (27)</button>
+<button class="selector-btn" onclick="mostrar('cristina')">Cristina (22)</button>
+</div></div>
+
+<div class="participant-section active" id="sec-junis">
+<div class="participant-header"><div class="participant-name">Junis</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 52 puntos ganados</div></div>
+<div class="pronosticos-grid">
+<div class="pc doble ok"><div class="pl">Campeón de la Liga ★ doble</div><div class="pp">10 pts</div><div class="pv">F.C. Barcelona</div><div class="pg">+10 pts ✓</div></div>
+<div class="pc ko"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Oihan Sancet</div><div class="fn">✗ Fue Lamine Yamal</div></div>
+<div class="pc ko"><div class="pl">Pichichi</div><div class="pp">5 pts</div><div class="pv">Lewandowski</div><div class="fn">✗ Fue Mbappé</div></div>
+<div class="pc ok"><div class="pl">Máx. goleador</div><div class="pp">5 pts</div><div class="pv">F.C. Barcelona</div><div class="pg">+5 pts ✓</div></div>
+<div class="pc ko"><div class="pl">Menos goleado</div><div class="pp">5 pts</div><div class="pv">Ath. Bilbao</div><div class="fn">✗ Fue Real Madrid</div></div>
+<div class="pc ko"><div class="pl">1.º en destituir entrenador</div><div class="pp">5 pts</div><div class="pv">Elche</div><div class="fn">✗ Fue el Oviedo</div></div>
+</div>
+<div class="l2">
+<div class="lc"><div class="lt">Champions League <span class="lb g">14 pts</span></div><div class="li-wrap">
+<div class="li ok"><div class="ln">1</div>F.C. Barcelona<span class="lp">+6</span></div>
+<div class="li ok"><div class="ln">2</div>Real Madrid<span class="lp">+6</span></div>
+<div class="li pa"><div class="ln">3</div>Atlético de Madrid<span class="lp">+2</span></div>
+<div class="li ko"><div class="ln">4</div>Ath. Bilbao</div>
+</div></div>
+<div class="lc"><div class="lt">5.ª y 6.ª posición <span class="lb z">0 pts</span></div><div class="li-wrap">
+<div class="li ko"><div class="ln">5</div>Villarreal</div>
+<div class="li ko"><div class="ln">6</div>Betis</div>
+</div></div>
+<div class="lc"><div class="lt">Descenso a 2.ª <span class="lb g">17 pts</span></div><div class="li-wrap">
+<div class="li ok"><div class="ln">↓</div>Mallorca<span class="lp">+6 <span class="excl">+5 excl.</span></span></div>
+<div class="li ok"><div class="ln">↓</div>Girona<span class="lp">+6</span></div>
+<div class="li ko"><div class="ln">↓</div>Elche</div>
+</div></div>
+<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb g">2 pts</span></div><div class="li-wrap">
+<div class="li ko"><div class="ln">↑</div>Mirandés</div>
+<div class="li"><div class="ln">↑</div>Almería</div>
+<div class="li pa"><div class="ln">↑</div>Racing Santander<span class="lp">+2</span></div>
+</div></div>
+<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb g">4 pts</span></div><div class="li-wrap">
+<div class="li pa"><div class="ln">↓</div>Cultural Leonesa<span class="lp">+2</span></div>
+<div class="li ko"><div class="ln">↓</div>Castellón</div>
+<div class="li ko"><div class="ln">↓</div>Andorra</div>
+<div class="li pa"><div class="ln">↓</div>Huesca<span class="lp">+2</span></div>
+</div></div>
 </div></div>
 
 <div class="participant-section" id="sec-leti">
-<div class="participant-header"><div class="participant-name">Leti</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 42 puntos ganados</div></div>
+<div class="participant-header"><div class="participant-name">Leti</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 46 puntos ganados</div></div>
 <div class="pronosticos-grid">
 <div class="pc ko"><div class="pl">Campeón de la Liga</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
 <div class="pc ok"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Lamine Yamal</div><div class="pg">+5 pts ✓</div></div>
@@ -102,21 +142,21 @@ body{background-color:var(--fondo);min-height:100vh;font-family:'DM Sans',sans-s
 <div class="li ko"><div class="ln">↓</div>Elche</div>
 <div class="li ok"><div class="ln">↓</div>Real Oviedo<span class="lp">+6</span></div>
 </div></div>
-<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
+<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb z">0 pts</span></div><div class="li-wrap">
 <div class="li ko"><div class="ln">↑</div>Leganés</div>
 <div class="li ko"><div class="ln">↑</div>Cádiz</div>
 <div class="li"><div class="ln">↑</div>Málaga</div>
 </div></div>
-<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
+<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb g">4 pts</span></div><div class="li-wrap">
 <div class="li ko"><div class="ln">↓</div>Ceuta</div>
 <div class="li ko"><div class="ln">↓</div>Real Sociedad B</div>
-<div class="li"><div class="ln">↓</div>Mirandés</div>
-<div class="li"><div class="ln">↓</div>Cultural Leonesa</div>
+<div class="li pa"><div class="ln">↓</div>Mirandés<span class="lp">+2</span></div>
+<div class="li pa"><div class="ln">↓</div>Cultural Leonesa<span class="lp">+2</span></div>
 </div></div>
 </div></div>
 
 <div class="participant-section" id="sec-andres">
-<div class="participant-header"><div class="participant-name">Andrés IV</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 41 puntos ganados</div></div>
+<div class="participant-header"><div class="participant-name">Andrés IV</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 43 puntos ganados</div></div>
 <div class="pronosticos-grid">
 <div class="pc ok"><div class="pl">Campeón de la Liga</div><div class="pp">5 pts</div><div class="pv">Barcelona</div><div class="pg">+5 pts ✓</div></div>
 <div class="pc ok"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Lamine</div><div class="pg">+5 pts ✓</div></div>
@@ -146,55 +186,55 @@ body{background-color:var(--fondo);min-height:100vh;font-family:'DM Sans',sans-s
 <div class="li"><div class="ln">↑</div>Las Palmas</div>
 <div class="li ko"><div class="ln">↑</div>Leganés</div>
 </div></div>
-<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
+<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb g">2 pts</span></div><div class="li-wrap">
 <div class="li ko"><div class="ln">↓</div>Andorra</div>
 <div class="li ko"><div class="ln">↓</div>Ceuta</div>
 <div class="li ko"><div class="ln">↓</div>Real Sociedad B</div>
-<div class="li"><div class="ln">↓</div>Cultural Leonesa</div>
+<div class="li pa"><div class="ln">↓</div>Cultural Leonesa<span class="lp">+2</span></div>
 </div></div>
 </div></div>
 
-<div class="participant-section active" id="sec-junis">
-<div class="participant-header"><div class="participant-name">Junis</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 48 puntos ganados</div></div>
+<div class="participant-section" id="sec-jose">
+<div class="participant-header"><div class="participant-name">José (Josito I)</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 43 puntos ganados</div></div>
 <div class="pronosticos-grid">
-<div class="pc doble ok"><div class="pl">Campeón de la Liga ★ doble</div><div class="pp">10 pts</div><div class="pv">F.C. Barcelona</div><div class="pg">+10 pts ✓</div></div>
-<div class="pc ko"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Oihan Sancet</div><div class="fn">✗ Fue Lamine Yamal</div></div>
-<div class="pc ko"><div class="pl">Pichichi</div><div class="pp">5 pts</div><div class="pv">Lewandowski</div><div class="fn">✗ Fue Mbappé</div></div>
-<div class="pc ok"><div class="pl">Máx. goleador</div><div class="pp">5 pts</div><div class="pv">F.C. Barcelona</div><div class="pg">+5 pts ✓</div></div>
-<div class="pc ko"><div class="pl">Menos goleado</div><div class="pp">5 pts</div><div class="pv">Ath. Bilbao</div><div class="fn">✗ Fue Real Madrid</div></div>
-<div class="pc ko"><div class="pl">1.º en destituir entrenador</div><div class="pp">5 pts</div><div class="pv">Elche</div><div class="fn">✗ Fue el Oviedo</div></div>
+<div class="pc ko"><div class="pl">Campeón de la Liga</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
+<div class="pc doble ok"><div class="pl">Trofeo Zarra ★ doble</div><div class="pp">10 pts</div><div class="pv">Lamine Yamal</div><div class="pg">+10 pts ✓</div></div>
+<div class="pc ok"><div class="pl">Pichichi</div><div class="pp">5 pts</div><div class="pv">Kylian Mbappé</div><div class="pg">+5 pts ✓</div></div>
+<div class="pc ko"><div class="pl">Máx. goleador</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
+<div class="pc ok"><div class="pl">Menos goleado</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="pg">+5 pts ✓</div></div>
+<div class="pc ko"><div class="pl">1.º en destituir entrenador</div><div class="pp">5 pts</div><div class="pv">Espanyol</div><div class="fn">✗ Fue el Oviedo</div></div>
 </div>
 <div class="l2">
-<div class="lc"><div class="lt">Champions League <span class="lb g">14 pts</span></div><div class="li-wrap">
-<div class="li ok"><div class="ln">1</div>F.C. Barcelona<span class="lp">+6</span></div>
-<div class="li ok"><div class="ln">2</div>Real Madrid<span class="lp">+6</span></div>
+<div class="lc"><div class="lt">Champions League <span class="lb g">6 pts</span></div><div class="li-wrap">
+<div class="li pa"><div class="ln">1</div>Real Madrid<span class="lp">+2</span></div>
+<div class="li pa"><div class="ln">2</div>Barcelona<span class="lp">+2</span></div>
 <div class="li pa"><div class="ln">3</div>Atlético de Madrid<span class="lp">+2</span></div>
 <div class="li ko"><div class="ln">4</div>Ath. Bilbao</div>
 </div></div>
 <div class="lc"><div class="lt">5.ª y 6.ª posición <span class="lb z">0 pts</span></div><div class="li-wrap">
 <div class="li ko"><div class="ln">5</div>Villarreal</div>
-<div class="li ko"><div class="ln">6</div>Betis</div>
+<div class="li ko"><div class="ln">6</div>Osasuna</div>
 </div></div>
-<div class="lc"><div class="lt">Descenso a 2.ª <span class="lb g">17 pts</span></div><div class="li-wrap">
-<div class="li ok" style="position:relative"><div class="ln">↓</div>Mallorca<span class="lp">+6 <span style="background:#b8830f;color:white;padding:1px 5px;border-radius:6px;font-size:9px;margin-left:3px">+5 excl.</span></span></div>
+<div class="lc"><div class="lt">Descenso a 2.ª <span class="lb g">6 pts</span></div><div class="li-wrap">
+<div class="li ko"><div class="ln">↓</div>Espanyol</div>
 <div class="li ok"><div class="ln">↓</div>Girona<span class="lp">+6</span></div>
-<div class="li ko"><div class="ln">↓</div>Elche</div>
+<div class="li ko"><div class="ln">↓</div>Alavés</div>
 </div></div>
-<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb g">2 pts</span></div><div class="li-wrap">
-<div class="li ko"><div class="ln">↑</div>Mirandés</div>
-<div class="li"><div class="ln">↑</div>Almería</div>
-<div class="li pa"><div class="ln">↑</div>Racing Santander<span class="lp">+2</span></div>
+<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb z">0 pts</span></div><div class="li-wrap">
+<div class="li ko"><div class="ln">↑</div>Albacete</div>
+<div class="li ko"><div class="ln">↑</div>Burgos</div>
+<div class="li ko"><div class="ln">↑</div>Córdoba</div>
 </div></div>
-<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
-<div class="li"><div class="ln">↓</div>Cultural Leonesa</div>
-<div class="li ko"><div class="ln">↓</div>Castellón</div>
-<div class="li ko"><div class="ln">↓</div>Andorra</div>
-<div class="li"><div class="ln">↓</div>Huesca</div>
+<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb g">11 pts</span></div><div class="li-wrap">
+<div class="li ko"><div class="ln">↓</div>Cádiz</div>
+<div class="li pa"><div class="ln">↓</div>Real Zaragoza<span class="lp">+2 <span class="excl">+5 excl.</span></span></div>
+<div class="li pa"><div class="ln">↓</div>Huesca<span class="lp">+2</span></div>
+<div class="li pa"><div class="ln">↓</div>Mirandés<span class="lp">+2</span></div>
 </div></div>
 </div></div>
 
 <div class="participant-section" id="sec-jorge">
-<div class="participant-header"><div class="participant-name">Jorge II</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 34 puntos ganados</div></div>
+<div class="participant-header"><div class="participant-name">Jorge II</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 36 puntos ganados</div></div>
 <div class="pronosticos-grid">
 <div class="pc ko"><div class="pl">Campeón de la Liga</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
 <div class="pc ok"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Lamine Yamal</div><div class="pg">+5 pts ✓</div></div>
@@ -224,55 +264,16 @@ body{background-color:var(--fondo);min-height:100vh;font-family:'DM Sans',sans-s
 <div class="li ko"><div class="ln">↑</div>Huesca</div>
 <div class="li pa"><div class="ln">↑</div>Racing de Santander<span class="lp">+2</span></div>
 </div></div>
-<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
-<div class="li"><div class="ln">↓</div>Cultural Leonesa</div>
+<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb g">2 pts</span></div><div class="li-wrap">
+<div class="li pa"><div class="ln">↓</div>Cultural Leonesa<span class="lp">+2</span></div>
 <div class="li ko"><div class="ln">↓</div>Córdoba</div>
 <div class="li ko"><div class="ln">↓</div>Castellón</div>
 <div class="li ko"><div class="ln">↓</div>Ceuta</div>
 </div></div>
 </div></div>
 
-<div class="participant-section" id="sec-jose">
-<div class="participant-header"><div class="participant-name">José (Josito I)</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 32 puntos ganados</div></div>
-<div class="pronosticos-grid">
-<div class="pc ko"><div class="pl">Campeón de la Liga</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
-<div class="pc doble ok"><div class="pl">Trofeo Zarra ★ doble</div><div class="pp">10 pts</div><div class="pv">Lamine Yamal</div><div class="pg">+10 pts ✓</div></div>
-<div class="pc ok"><div class="pl">Pichichi</div><div class="pp">5 pts</div><div class="pv">Kylian Mbappé</div><div class="pg">+5 pts ✓</div></div>
-<div class="pc ko"><div class="pl">Máx. goleador</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
-<div class="pc ok"><div class="pl">Menos goleado</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="pg">+5 pts ✓</div></div>
-<div class="pc ko"><div class="pl">1.º en destituir entrenador</div><div class="pp">5 pts</div><div class="pv">Espanyol</div><div class="fn">✗ Fue el Oviedo</div></div>
-</div>
-<div class="l2">
-<div class="lc"><div class="lt">Champions League <span class="lb g">6 pts</span></div><div class="li-wrap">
-<div class="li pa"><div class="ln">1</div>Real Madrid<span class="lp">+2</span></div>
-<div class="li pa"><div class="ln">2</div>Barcelona<span class="lp">+2</span></div>
-<div class="li pa"><div class="ln">3</div>Atlético de Madrid<span class="lp">+2</span></div>
-<div class="li ko"><div class="ln">4</div>Ath. Bilbao</div>
-</div></div>
-<div class="lc"><div class="lt">5.ª y 6.ª posición <span class="lb z">0 pts</span></div><div class="li-wrap">
-<div class="li ko"><div class="ln">5</div>Villarreal</div>
-<div class="li ko"><div class="ln">6</div>Osasuna</div>
-</div></div>
-<div class="lc"><div class="lt">Descenso a 2.ª <span class="lb g">6 pts</span></div><div class="li-wrap">
-<div class="li ko"><div class="ln">↓</div>Espanyol</div>
-<div class="li ok"><div class="ln">↓</div>Girona<span class="lp">+6</span></div>
-<div class="li ko"><div class="ln">↓</div>Alavés</div>
-</div></div>
-<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb z">0 pts</span></div><div class="li-wrap">
-<div class="li ko"><div class="ln">↑</div>Albacete</div>
-<div class="li"><div class="ln">↑</div>Burgos</div>
-<div class="li"><div class="ln">↑</div>Córdoba</div>
-</div></div>
-<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
-<div class="li ko"><div class="ln">↓</div>Cádiz</div>
-<div class="li"><div class="ln">↓</div>Real Zaragoza</div>
-<div class="li"><div class="ln">↓</div>Huesca</div>
-<div class="li"><div class="ln">↓</div>Mirandés</div>
-</div></div>
-</div></div>
-
 <div class="participant-section" id="sec-mama">
-<div class="participant-header"><div class="participant-name">Mamá</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 29 puntos ganados</div></div>
+<div class="participant-header"><div class="participant-name">Mamá</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 33 puntos ganados</div></div>
 <div class="pronosticos-grid">
 <div class="pc ko"><div class="pl">Campeón de la Liga</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
 <div class="pc ko"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Borja Iglesias</div><div class="fn">✗ Fue Lamine Yamal</div></div>
@@ -298,137 +299,20 @@ body{background-color:var(--fondo);min-height:100vh;font-family:'DM Sans',sans-s
 <div class="li ok"><div class="ln">↓</div>Oviedo<span class="lp">+6</span></div>
 </div></div>
 <div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb z">0 pts</span></div><div class="li-wrap">
-<div class="li"><div class="ln">↑</div>Eibar</div>
+<div class="li ko"><div class="ln">↑</div>Eibar</div>
 <div class="li ko"><div class="ln">↑</div>Mirandés</div>
 <div class="li ko"><div class="ln">↑</div>Cultural Leonesa</div>
 </div></div>
-<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
-<div class="li"><div class="ln">↓</div>Cultural Leonesa</div>
+<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb g">4 pts</span></div><div class="li-wrap">
+<div class="li pa"><div class="ln">↓</div>Cultural Leonesa<span class="lp">+2</span></div>
 <div class="li ko"><div class="ln">↓</div>Andorra</div>
-<div class="li"><div class="ln">↓</div>Huesca</div>
-<div class="li ko"><div class="ln">↓</div>Ceuta</div>
-</div></div>
-</div></div>
-
-<div class="participant-section" id="sec-dani">
-<div class="participant-header"><div class="participant-name">Dani</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 25 puntos ganados</div></div>
-<div class="pronosticos-grid">
-<div class="pc doble ko"><div class="pl">Campeón de la Liga ★ doble</div><div class="pp">10 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
-<div class="pc ko"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Kike García</div><div class="fn">✗ Fue Lamine Yamal</div></div>
-<div class="pc ok"><div class="pl">Pichichi</div><div class="pp">5 pts</div><div class="pv">Mbappé</div><div class="pg">+5 pts ✓</div></div>
-<div class="pc ko"><div class="pl">Máx. goleador</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
-<div class="pc ok"><div class="pl">Menos goleado</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="pg">+5 pts ✓</div></div>
-<div class="pc ko"><div class="pl">1.º en destituir entrenador</div><div class="pp">5 pts</div><div class="pv">Alavés</div><div class="fn">✗ Fue el Oviedo</div></div>
-</div>
-<div class="l2">
-<div class="lc"><div class="lt">Champions League <span class="lb g">8 pts</span></div><div class="li-wrap">
-<div class="li pa"><div class="ln">1</div>Real Madrid<span class="lp">+2</span></div>
-<div class="li pa"><div class="ln">2</div>Barcelona<span class="lp">+2</span></div>
-<div class="li pa"><div class="ln">3</div>Atlético Madrid<span class="lp">+2</span></div>
-<div class="li pa"><div class="ln">4</div>Villarreal<span class="lp">+2</span></div>
-</div></div>
-<div class="lc"><div class="lt">5.ª y 6.ª posición <span class="lb g">5 pts</span></div><div class="li-wrap">
-<div class="li ok"><div class="ln">5</div>Betis<span class="lp">+5</span></div>
-<div class="li ko"><div class="ln">6</div>Athletic Bilbao</div>
-</div></div>
-<div class="lc"><div class="lt">Descenso a 2.ª <span class="lb g">2 pts</span></div><div class="li-wrap">
-<div class="li ko"><div class="ln">↓</div>Alavés</div>
-<div class="li pa"><div class="ln">↓</div>Oviedo<span class="lp">+2</span></div>
-<div class="li ko"><div class="ln">↓</div>Elche</div>
-</div></div>
-<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb z">0 pts</span></div><div class="li-wrap">
-<div class="li ko"><div class="ln">↑</div>Valladolid</div>
-<div class="li"><div class="ln">↑</div>Málaga</div>
-<div class="li ko"><div class="ln">↑</div>Zaragoza</div>
-</div></div>
-<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
-<div class="li ko"><div class="ln">↓</div>Burgos</div>
-<div class="li"><div class="ln">↓</div>Mirandés</div>
-<div class="li ko"><div class="ln">↓</div>Real Sociedad B</div>
-<div class="li ko"><div class="ln">↓</div>Ceuta</div>
-</div></div>
-</div></div>
-
-<div class="participant-section" id="sec-luis">
-<div class="participant-header"><div class="participant-name">Luis II</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 23 puntos ganados</div></div>
-<div class="pronosticos-grid">
-<div class="pc doble ko"><div class="pl">Campeón de la Liga ★ doble</div><div class="pp">10 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
-<div class="pc ko"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Gonzalo</div><div class="fn">✗ Fue Lamine Yamal</div></div>
-<div class="pc ok"><div class="pl">Pichichi</div><div class="pp">5 pts</div><div class="pv">Mbappé</div><div class="pg">+5 pts ✓</div></div>
-<div class="pc ko"><div class="pl">Máx. goleador</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
-<div class="pc ok"><div class="pl">Menos goleado</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="pg">+5 pts ✓</div></div>
-<div class="pc ko"><div class="pl">1.º en destituir entrenador</div><div class="pp">5 pts</div><div class="pv">Alavés</div><div class="fn">✗ Fue el Oviedo</div></div>
-</div>
-<div class="l2">
-<div class="lc"><div class="lt">Champions League <span class="lb g">8 pts</span></div><div class="li-wrap">
-<div class="li pa"><div class="ln">1</div>Real Madrid<span class="lp">+2</span></div>
-<div class="li pa"><div class="ln">2</div>Barça<span class="lp">+2</span></div>
-<div class="li pa"><div class="ln">3</div>Atlético de Madrid<span class="lp">+2</span></div>
-<div class="li pa"><div class="ln">4</div>Villarreal<span class="lp">+2</span></div>
-</div></div>
-<div class="lc"><div class="lt">5.ª y 6.ª posición <span class="lb g">5 pts</span></div><div class="li-wrap">
-<div class="li ok"><div class="ln">5</div>Betis<span class="lp">+5</span></div>
-<div class="li ko"><div class="ln">6</div>Ath. Bilbao</div>
-</div></div>
-<div class="lc"><div class="lt">Descenso a 2.ª <span class="lb z">0 pts</span></div><div class="li-wrap">
-<div class="li ko"><div class="ln">↓</div>Alavés</div>
-<div class="li ko"><div class="ln">↓</div>Getafe</div>
-<div class="li ko"><div class="ln">↓</div>Elche</div>
-</div></div>
-<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb z">0 pts</span></div><div class="li-wrap">
-<div class="li ko"><div class="ln">↑</div>Granada</div>
-<div class="li ko"><div class="ln">↑</div>Leganés</div>
-<div class="li ko"><div class="ln">↑</div>Cádiz</div>
-</div></div>
-<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
-<div class="li"><div class="ln">↓</div>Mirandés</div>
-<div class="li ko"><div class="ln">↓</div>Real Sociedad B</div>
-<div class="li ko"><div class="ln">↓</div>Andorra</div>
-<div class="li ko"><div class="ln">↓</div>Córdoba</div>
-</div></div>
-</div></div>
-
-<div class="participant-section" id="sec-fernando">
-<div class="participant-header"><div class="participant-name">Fernando II</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 23 puntos ganados</div></div>
-<div class="pronosticos-grid">
-<div class="pc ko"><div class="pl">Campeón de la Liga</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
-<div class="pc ko"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Borja Mayoral</div><div class="fn">✗ Fue Lamine Yamal</div></div>
-<div class="pc doble ok"><div class="pl">Pichichi ★ doble</div><div class="pp">10 pts</div><div class="pv">Mbappé</div><div class="pg">+10 pts ✓</div></div>
-<div class="pc ko"><div class="pl">Máx. goleador</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
-<div class="pc ok"><div class="pl">Menos goleado</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="pg">+5 pts ✓</div></div>
-<div class="pc ko"><div class="pl">1.º en destituir entrenador</div><div class="pp">5 pts</div><div class="pv">Alavés</div><div class="fn">✗ Fue el Oviedo</div></div>
-</div>
-<div class="l2">
-<div class="lc"><div class="lt">Champions League <span class="lb g">6 pts</span></div><div class="li-wrap">
-<div class="li pa"><div class="ln">1</div>Real Madrid<span class="lp">+2</span></div>
-<div class="li pa"><div class="ln">2</div>Barcelona<span class="lp">+2</span></div>
-<div class="li pa"><div class="ln">3</div>Atlético de Madrid<span class="lp">+2</span></div>
-<div class="li ko"><div class="ln">4</div>Real Betis</div>
-</div></div>
-<div class="lc"><div class="lt">5.ª y 6.ª posición <span class="lb z">0 pts</span></div><div class="li-wrap">
-<div class="li ko"><div class="ln">5</div>Athletic Bilbao</div>
-<div class="li ko"><div class="ln">6</div>Villarreal</div>
-</div></div>
-<div class="lc"><div class="lt">Descenso a 2.ª <span class="lb g">2 pts</span></div><div class="li-wrap">
-<div class="li pa"><div class="ln">↓</div>Girona<span class="lp">+2</span></div>
-<div class="li ko"><div class="ln">↓</div>Real Sociedad</div>
-<div class="li ko"><div class="ln">↓</div>Alavés</div>
-</div></div>
-<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb z">0 pts</span></div><div class="li-wrap">
-<div class="li"><div class="ln">↑</div>Racing de Santander</div>
-<div class="li ko"><div class="ln">↑</div>Leganés</div>
-<div class="li ko"><div class="ln">↑</div>Huesca</div>
-</div></div>
-<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
-<div class="li ko"><div class="ln">↓</div>Real Valladolid</div>
-<div class="li"><div class="ln">↓</div>Cultural Leonesa</div>
-<div class="li ko"><div class="ln">↓</div>Eibar</div>
+<div class="li pa"><div class="ln">↓</div>Huesca<span class="lp">+2</span></div>
 <div class="li ko"><div class="ln">↓</div>Ceuta</div>
 </div></div>
 </div></div>
 
 <div class="participant-section" id="sec-javi">
-<div class="participant-header"><div class="participant-name">Javi II</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 21 puntos ganados</div></div>
+<div class="participant-header"><div class="participant-name">Javi II</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 31 puntos ganados</div></div>
 <div class="pronosticos-grid">
 <div class="pc ko"><div class="pl">Campeón de la Liga</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
 <div class="pc ko"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Ayoze Pérez</div><div class="fn">✗ Fue Lamine Yamal</div></div>
@@ -453,21 +337,60 @@ body{background-color:var(--fondo);min-height:100vh;font-family:'DM Sans',sans-s
 <div class="li ko"><div class="ln">↓</div>Levante</div>
 <div class="li ko"><div class="ln">↓</div>Getafe</div>
 </div></div>
-<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb z">0 pts</span></div><div class="li-wrap">
-<div class="li"><div class="ln">↑</div>Racing de Santander</div>
+<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb g">6 pts</span></div><div class="li-wrap">
+<div class="li ok"><div class="ln">↑</div>Racing de Santander<span class="lp">+6</span></div>
 <div class="li"><div class="ln">↑</div>U.D. Las Palmas</div>
 <div class="li ko"><div class="ln">↑</div>Leganés</div>
 </div></div>
-<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
-<div class="li"><div class="ln">↓</div>Cultural Leonesa</div>
+<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb g">4 pts</span></div><div class="li-wrap">
+<div class="li pa"><div class="ln">↓</div>Cultural Leonesa<span class="lp">+2</span></div>
 <div class="li ko"><div class="ln">↓</div>Ceuta</div>
 <div class="li ko"><div class="ln">↓</div>Albacete</div>
-<div class="li"><div class="ln">↓</div>Mirandés</div>
+<div class="li pa"><div class="ln">↓</div>Mirandés<span class="lp">+2</span></div>
+</div></div>
+</div></div>
+
+<div class="participant-section" id="sec-fernando">
+<div class="participant-header"><div class="participant-name">Fernando II</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 31 puntos ganados</div></div>
+<div class="pronosticos-grid">
+<div class="pc ko"><div class="pl">Campeón de la Liga</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
+<div class="pc ko"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Borja Mayoral</div><div class="fn">✗ Fue Lamine Yamal</div></div>
+<div class="pc doble ok"><div class="pl">Pichichi ★ doble</div><div class="pp">10 pts</div><div class="pv">Mbappé</div><div class="pg">+10 pts ✓</div></div>
+<div class="pc ko"><div class="pl">Máx. goleador</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
+<div class="pc ok"><div class="pl">Menos goleado</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="pg">+5 pts ✓</div></div>
+<div class="pc ko"><div class="pl">1.º en destituir entrenador</div><div class="pp">5 pts</div><div class="pv">Alavés</div><div class="fn">✗ Fue el Oviedo</div></div>
+</div>
+<div class="l2">
+<div class="lc"><div class="lt">Champions League <span class="lb g">6 pts</span></div><div class="li-wrap">
+<div class="li pa"><div class="ln">1</div>Real Madrid<span class="lp">+2</span></div>
+<div class="li pa"><div class="ln">2</div>Barcelona<span class="lp">+2</span></div>
+<div class="li pa"><div class="ln">3</div>Atlético de Madrid<span class="lp">+2</span></div>
+<div class="li ko"><div class="ln">4</div>Real Betis</div>
+</div></div>
+<div class="lc"><div class="lt">5.ª y 6.ª posición <span class="lb z">0 pts</span></div><div class="li-wrap">
+<div class="li ko"><div class="ln">5</div>Athletic Bilbao</div>
+<div class="li ko"><div class="ln">6</div>Villarreal</div>
+</div></div>
+<div class="lc"><div class="lt">Descenso a 2.ª <span class="lb g">2 pts</span></div><div class="li-wrap">
+<div class="li pa"><div class="ln">↓</div>Girona<span class="lp">+2</span></div>
+<div class="li ko"><div class="ln">↓</div>Real Sociedad</div>
+<div class="li ko"><div class="ln">↓</div>Alavés</div>
+</div></div>
+<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb g">6 pts</span></div><div class="li-wrap">
+<div class="li ok"><div class="ln">↑</div>Racing de Santander<span class="lp">+6</span></div>
+<div class="li ko"><div class="ln">↑</div>Leganés</div>
+<div class="li ko"><div class="ln">↑</div>Huesca</div>
+</div></div>
+<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb g">2 pts</span></div><div class="li-wrap">
+<div class="li ko"><div class="ln">↓</div>Real Valladolid</div>
+<div class="li pa"><div class="ln">↓</div>Cultural Leonesa<span class="lp">+2</span></div>
+<div class="li ko"><div class="ln">↓</div>Eibar</div>
+<div class="li ko"><div class="ln">↓</div>Ceuta</div>
 </div></div>
 </div></div>
 
 <div class="participant-section" id="sec-tomas">
-<div class="participant-header"><div class="participant-name">Tomás II</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 18 puntos ganados</div></div>
+<div class="participant-header"><div class="participant-name">Tomás II</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 30 puntos ganados</div></div>
 <div class="pronosticos-grid">
 <div class="pc ko"><div class="pl">Campeón de la Liga</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
 <div class="pc ko"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Hugo Duro</div><div class="fn">✗ Fue Lamine Yamal</div></div>
@@ -497,16 +420,94 @@ body{background-color:var(--fondo);min-height:100vh;font-family:'DM Sans',sans-s
 <div class="li ko"><div class="ln">↑</div>Cádiz</div>
 <div class="li"><div class="ln">↑</div>Almería</div>
 </div></div>
-<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
-<div class="li"><div class="ln">↓</div>Mirandés</div>
+<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb g">12 pts</span></div><div class="li-wrap">
+<div class="li ok"><div class="ln">↓</div>Mirandés<span class="lp">+6</span></div>
 <div class="li ko"><div class="ln">↓</div>Real Sociedad B</div>
-<div class="li"><div class="ln">↓</div>Cultural Leonesa</div>
+<div class="li ok"><div class="ln">↓</div>Cultural Leonesa<span class="lp">+6</span></div>
+<div class="li ko"><div class="ln">↓</div>Ceuta</div>
+</div></div>
+</div></div>
+
+<div class="participant-section" id="sec-luis">
+<div class="participant-header"><div class="participant-name">Luis II</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 29 puntos ganados</div></div>
+<div class="pronosticos-grid">
+<div class="pc doble ko"><div class="pl">Campeón de la Liga ★ doble</div><div class="pp">10 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
+<div class="pc ko"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Gonzalo</div><div class="fn">✗ Fue Lamine Yamal</div></div>
+<div class="pc ok"><div class="pl">Pichichi</div><div class="pp">5 pts</div><div class="pv">Mbappé</div><div class="pg">+5 pts ✓</div></div>
+<div class="pc ko"><div class="pl">Máx. goleador</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
+<div class="pc ok"><div class="pl">Menos goleado</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="pg">+5 pts ✓</div></div>
+<div class="pc ko"><div class="pl">1.º en destituir entrenador</div><div class="pp">5 pts</div><div class="pv">Alavés</div><div class="fn">✗ Fue el Oviedo</div></div>
+</div>
+<div class="l2">
+<div class="lc"><div class="lt">Champions League <span class="lb g">8 pts</span></div><div class="li-wrap">
+<div class="li pa"><div class="ln">1</div>Real Madrid<span class="lp">+2</span></div>
+<div class="li pa"><div class="ln">2</div>Barça<span class="lp">+2</span></div>
+<div class="li pa"><div class="ln">3</div>Atlético de Madrid<span class="lp">+2</span></div>
+<div class="li pa"><div class="ln">4</div>Villarreal<span class="lp">+2</span></div>
+</div></div>
+<div class="lc"><div class="lt">5.ª y 6.ª posición <span class="lb g">5 pts</span></div><div class="li-wrap">
+<div class="li ok"><div class="ln">5</div>Betis<span class="lp">+5</span></div>
+<div class="li ko"><div class="ln">6</div>Ath. Bilbao</div>
+</div></div>
+<div class="lc"><div class="lt">Descenso a 2.ª <span class="lb z">0 pts</span></div><div class="li-wrap">
+<div class="li ko"><div class="ln">↓</div>Alavés</div>
+<div class="li ko"><div class="ln">↓</div>Getafe</div>
+<div class="li ko"><div class="ln">↓</div>Elche</div>
+</div></div>
+<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb z">0 pts</span></div><div class="li-wrap">
+<div class="li ko"><div class="ln">↑</div>Granada</div>
+<div class="li ko"><div class="ln">↑</div>Leganés</div>
+<div class="li ko"><div class="ln">↑</div>Cádiz</div>
+</div></div>
+<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb g">6 pts</span></div><div class="li-wrap">
+<div class="li ok"><div class="ln">↓</div>Mirandés<span class="lp">+6</span></div>
+<div class="li ko"><div class="ln">↓</div>Real Sociedad B</div>
+<div class="li ko"><div class="ln">↓</div>Andorra</div>
+<div class="li ko"><div class="ln">↓</div>Córdoba</div>
+</div></div>
+</div></div>
+
+<div class="participant-section" id="sec-dani">
+<div class="participant-header"><div class="participant-name">Dani</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 27 puntos ganados</div></div>
+<div class="pronosticos-grid">
+<div class="pc doble ko"><div class="pl">Campeón de la Liga ★ doble</div><div class="pp">10 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
+<div class="pc ko"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Kike García</div><div class="fn">✗ Fue Lamine Yamal</div></div>
+<div class="pc ok"><div class="pl">Pichichi</div><div class="pp">5 pts</div><div class="pv">Mbappé</div><div class="pg">+5 pts ✓</div></div>
+<div class="pc ko"><div class="pl">Máx. goleador</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
+<div class="pc ok"><div class="pl">Menos goleado</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="pg">+5 pts ✓</div></div>
+<div class="pc ko"><div class="pl">1.º en destituir entrenador</div><div class="pp">5 pts</div><div class="pv">Alavés</div><div class="fn">✗ Fue el Oviedo</div></div>
+</div>
+<div class="l2">
+<div class="lc"><div class="lt">Champions League <span class="lb g">8 pts</span></div><div class="li-wrap">
+<div class="li pa"><div class="ln">1</div>Real Madrid<span class="lp">+2</span></div>
+<div class="li pa"><div class="ln">2</div>Barcelona<span class="lp">+2</span></div>
+<div class="li pa"><div class="ln">3</div>Atlético Madrid<span class="lp">+2</span></div>
+<div class="li pa"><div class="ln">4</div>Villarreal<span class="lp">+2</span></div>
+</div></div>
+<div class="lc"><div class="lt">5.ª y 6.ª posición <span class="lb g">5 pts</span></div><div class="li-wrap">
+<div class="li ok"><div class="ln">5</div>Betis<span class="lp">+5</span></div>
+<div class="li ko"><div class="ln">6</div>Athletic Bilbao</div>
+</div></div>
+<div class="lc"><div class="lt">Descenso a 2.ª <span class="lb g">2 pts</span></div><div class="li-wrap">
+<div class="li ko"><div class="ln">↓</div>Alavés</div>
+<div class="li pa"><div class="ln">↓</div>Oviedo<span class="lp">+2</span></div>
+<div class="li ko"><div class="ln">↓</div>Elche</div>
+</div></div>
+<div class="lc"><div class="lt">Ascenso a 1.ª <span class="lb z">0 pts</span></div><div class="li-wrap">
+<div class="li ko"><div class="ln">↑</div>Valladolid</div>
+<div class="li"><div class="ln">↑</div>Málaga</div>
+<div class="li ko"><div class="ln">↑</div>Zaragoza</div>
+</div></div>
+<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb g">2 pts</span></div><div class="li-wrap">
+<div class="li ko"><div class="ln">↓</div>Burgos</div>
+<div class="li pa"><div class="ln">↓</div>Mirandés<span class="lp">+2</span></div>
+<div class="li ko"><div class="ln">↓</div>Real Sociedad B</div>
 <div class="li ko"><div class="ln">↓</div>Ceuta</div>
 </div></div>
 </div></div>
 
 <div class="participant-section" id="sec-cristina">
-<div class="participant-header"><div class="participant-name">Cristina</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 16 puntos ganados</div></div>
+<div class="participant-header"><div class="participant-name">Cristina</div><div class="participant-subtitle">Pronósticos de temporada</div><div class="participant-total-pts">✅ 22 puntos ganados</div></div>
 <div class="pronosticos-grid">
 <div class="pc ko"><div class="pl">Campeón de la Liga</div><div class="pp">5 pts</div><div class="pv">Real Madrid</div><div class="fn">✗ Fue Barcelona</div></div>
 <div class="pc ok"><div class="pl">Trofeo Zarra</div><div class="pp">5 pts</div><div class="pv">Lamine Yamal</div><div class="pg">+5 pts ✓</div></div>
@@ -536,10 +537,10 @@ body{background-color:var(--fondo);min-height:100vh;font-family:'DM Sans',sans-s
 <div class="li ko"><div class="ln">↑</div>Granada</div>
 <div class="li"><div class="ln">↑</div>U.D. Las Palmas</div>
 </div></div>
-<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb">2+4+15 pts</span></div><div class="li-wrap">
+<div class="lc"><div class="lt">Descenso a 1.ª RFEF <span class="lb g">6 pts</span></div><div class="li-wrap">
 <div class="li ko"><div class="ln">↓</div>Ceuta</div>
 <div class="li ko"><div class="ln">↓</div>Real Sociedad B</div>
-<div class="li"><div class="ln">↓</div>Cultural Leonesa</div>
+<div class="li ok"><div class="ln">↓</div>Cultural Leonesa<span class="lp">+6</span></div>
 <div class="li ko"><div class="ln">↓</div>Burgos</div>
 </div></div>
 </div></div>
